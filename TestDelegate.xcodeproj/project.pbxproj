@@ -18,6 +18,11 @@
 		0124EB0C166F7CF3007C739C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0124EB0B166F7CF3007C739C /* Default-568h@2x.png */; };
 		0124EB0F166F7CF3007C739C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0124EB0E166F7CF3007C739C /* ViewController.m */; };
 		0124EB12166F7CF3007C739C /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0124EB10166F7CF3007C739C /* ViewController.xib */; };
+		0124EB1B166F7D09007C739C /* ViewControllerA.m in Sources */ = {isa = PBXBuildFile; fileRef = 0124EB19166F7D09007C739C /* ViewControllerA.m */; };
+		0124EB1C166F7D09007C739C /* ViewControllerA.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0124EB1A166F7D09007C739C /* ViewControllerA.xib */; };
+		0124EB20166F7D1F007C739C /* ViewControllerB.m in Sources */ = {isa = PBXBuildFile; fileRef = 0124EB1E166F7D1F007C739C /* ViewControllerB.m */; };
+		0124EB21166F7D1F007C739C /* ViewControllerB.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0124EB1F166F7D1F007C739C /* ViewControllerB.xib */; };
+		0124EB24166F7D31007C739C /* SwitchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0124EB23166F7D31007C739C /* SwitchViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +42,16 @@
 		0124EB0D166F7CF3007C739C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		0124EB0E166F7CF3007C739C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		0124EB11166F7CF3007C739C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		0124EB18166F7D09007C739C /* ViewControllerA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerA.h; sourceTree = "<group>"; };
+		0124EB19166F7D09007C739C /* ViewControllerA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerA.m; sourceTree = "<group>"; };
+		0124EB1A166F7D09007C739C /* ViewControllerA.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewControllerA.xib; sourceTree = "<group>"; };
+		0124EB1D166F7D1F007C739C /* ViewControllerB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerB.h; sourceTree = "<group>"; };
+		0124EB1E166F7D1F007C739C /* ViewControllerB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerB.m; sourceTree = "<group>"; };
+		0124EB1F166F7D1F007C739C /* ViewControllerB.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewControllerB.xib; sourceTree = "<group>"; };
+		0124EB22166F7D31007C739C /* SwitchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchViewController.h; sourceTree = "<group>"; };
+		0124EB23166F7D31007C739C /* SwitchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchViewController.m; sourceTree = "<group>"; };
+		0124EB25166F7D9D007C739C /* ViewControllerAProtocal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewControllerAProtocal.h; sourceTree = "<group>"; };
+		0124EB26166F7DB6007C739C /* ViewControllerBProtocal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewControllerBProtocal.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +104,16 @@
 				0124EB0E166F7CF3007C739C /* ViewController.m */,
 				0124EB10166F7CF3007C739C /* ViewController.xib */,
 				0124EAFC166F7CF3007C739C /* Supporting Files */,
+				0124EB18166F7D09007C739C /* ViewControllerA.h */,
+				0124EB19166F7D09007C739C /* ViewControllerA.m */,
+				0124EB1A166F7D09007C739C /* ViewControllerA.xib */,
+				0124EB1D166F7D1F007C739C /* ViewControllerB.h */,
+				0124EB1E166F7D1F007C739C /* ViewControllerB.m */,
+				0124EB1F166F7D1F007C739C /* ViewControllerB.xib */,
+				0124EB22166F7D31007C739C /* SwitchViewController.h */,
+				0124EB23166F7D31007C739C /* SwitchViewController.m */,
+				0124EB25166F7D9D007C739C /* ViewControllerAProtocal.h */,
+				0124EB26166F7DB6007C739C /* ViewControllerBProtocal.h */,
 			);
 			path = TestDelegate;
 			sourceTree = "<group>";
@@ -163,6 +188,8 @@
 				0124EB0A166F7CF3007C739C /* Default@2x.png in Resources */,
 				0124EB0C166F7CF3007C739C /* Default-568h@2x.png in Resources */,
 				0124EB12166F7CF3007C739C /* ViewController.xib in Resources */,
+				0124EB1C166F7D09007C739C /* ViewControllerA.xib in Resources */,
+				0124EB21166F7D1F007C739C /* ViewControllerB.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,6 +203,9 @@
 				0124EB02166F7CF3007C739C /* main.m in Sources */,
 				0124EB06166F7CF3007C739C /* AppDelegate.m in Sources */,
 				0124EB0F166F7CF3007C739C /* ViewController.m in Sources */,
+				0124EB1B166F7D09007C739C /* ViewControllerA.m in Sources */,
+				0124EB20166F7D1F007C739C /* ViewControllerB.m in Sources */,
+				0124EB24166F7D31007C739C /* SwitchViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
