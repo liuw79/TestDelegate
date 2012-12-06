@@ -27,10 +27,15 @@
 {
     [super viewDidLoad];
     
-    [self.buttonB addTarget:self.delegate
-                     action:@selector(switchToA)
+    [self.buttonB addTarget:self
+                     action:@selector(switch)
            forControlEvents:UIControlEventTouchUpInside];
     // Do any additional setup after loading the view from its nib.
+}
+
+- (void)switch
+{
+    [self.delegate switch];
 }
 
 - (void)didReceiveMemoryWarning

@@ -50,16 +50,20 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)switchToA
+- (void)switch
 {
-    //[self.view removeFromSuperview];
-    [self.view addSubview:self.viewA.view];
-}
-
-- (void)switchToB
-{
-    NSLog(@"switch to B");
-    [self.view addSubview:self.viewB.view];
+    if(self.viewA.view != nil)   //切换到B
+    {
+        [self.view addSubview:self.viewB.view];
+        [self.viewA.view removeFromSuperview];
+        self.viewA.view = nil;
+    }
+    else  //切换到A
+    {
+        [self.view addSubview:self.viewA.view];
+        [self.viewB.view removeFromSuperview];
+        self.viewB.view = nil;
+    }
 }
 
 @end

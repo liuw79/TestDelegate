@@ -28,7 +28,7 @@
     [super viewDidLoad];
     
     [self.buttonA addTarget:self
-                     action:@selector(switchToB)
+                     action:@selector(switch)
            forControlEvents:UIControlEventTouchUpInside];
     
     // Do any additional setup after loading the view from its nib.
@@ -40,9 +40,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)switchToB
+- (void)switch
 {
-    [self.delegate switchToB];
+    [self.delegate switch];
 }
 
 - (void)dealloc {

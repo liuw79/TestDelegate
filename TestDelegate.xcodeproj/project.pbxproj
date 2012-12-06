@@ -50,8 +50,7 @@
 		0124EB1F166F7D1F007C739C /* ViewControllerB.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewControllerB.xib; sourceTree = "<group>"; };
 		0124EB22166F7D31007C739C /* SwitchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchViewController.h; sourceTree = "<group>"; };
 		0124EB23166F7D31007C739C /* SwitchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchViewController.m; sourceTree = "<group>"; };
-		0124EB25166F7D9D007C739C /* ViewControllerAProtocal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewControllerAProtocal.h; sourceTree = "<group>"; };
-		0124EB26166F7DB6007C739C /* ViewControllerBProtocal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewControllerBProtocal.h; sourceTree = "<group>"; };
+		0190E8771670927C008093CC /* switchProtocal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = switchProtocal.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,8 +111,7 @@
 				0124EB1F166F7D1F007C739C /* ViewControllerB.xib */,
 				0124EB22166F7D31007C739C /* SwitchViewController.h */,
 				0124EB23166F7D31007C739C /* SwitchViewController.m */,
-				0124EB25166F7D9D007C739C /* ViewControllerAProtocal.h */,
-				0124EB26166F7DB6007C739C /* ViewControllerBProtocal.h */,
+				0190E8771670927C008093CC /* switchProtocal.h */,
 			);
 			path = TestDelegate;
 			sourceTree = "<group>";
@@ -319,6 +317,7 @@
 				0124EB17166F7CF3007C739C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

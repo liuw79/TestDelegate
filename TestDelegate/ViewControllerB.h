@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "switchProtocal.h"
 
-@interface ViewControllerB : UIViewController
+@interface ViewControllerB : UIViewController<switchProtocal>
+
 @property (retain, nonatomic) IBOutlet UIButton *buttonB;
 
-@property (nonatomic, assign) UIViewController * delegate;
+@property (nonatomic, assign) id <switchProtocal> delegate;
 
 @end

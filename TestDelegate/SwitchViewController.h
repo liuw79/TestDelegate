@@ -9,10 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "ViewControllerA.h"
 #import "ViewControllerB.h"
-#import "ViewControllerAProtocal.h"
-#import "ViewControllerBProtocal.h"
+#import "switchProtocal.h"
 
-@interface SwitchViewController : UIViewController<ViewControllerAProtocal, ViewControllerBProtocal>
+@interface SwitchViewController : UIViewController<switchProtocal>
 
 @property (nonatomic, retain) ViewControllerA * viewA;
 @property (nonatomic, retain) ViewControllerB * viewB;
