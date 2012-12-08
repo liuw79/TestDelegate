@@ -68,15 +68,11 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:MPMoviePlayerPlaybackDidFinishNotification object:theMovie];
     
-    [theMovie release];
-    
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"状态" message:@"播放完毕！" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:nil];
     [alert show];
     [alert release];
     
-    //问题：要么出现黑屏，要么程序crash
-    //[self.moviePlayerController.view removeFromSuperview];
-    //[_moviePlayerController release];
+    [self.moviePlayerController.view removeFromSuperview];
     [self.view.superview bringSubviewToFront:self.view];
 }
 
