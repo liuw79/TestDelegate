@@ -31,13 +31,62 @@
                      action:@selector(switch)
            forControlEvents:UIControlEventTouchUpInside];
     
+    float yValue = [UIScreen mainScreen].applicationFrame.size.height - 50;
+    float hValue = self.TextA.frame.size.height;
+    CGRect frameTextA  = CGRectMake(20, yValue, 260, hValue);
+    [self.TextA setFrame:frameTextA];
+    NSLog(@"did load: %f,%f,%f,%f",  self.TextA.frame.origin.x, self.TextA.frame.origin.y, self.TextA.frame.size.height, self.TextA.frame.size.width);
+    
+    [self registerForKeyBoardNotifications];
     // Do any additional setup after loading the view from its nib.
+    [self.TextA setDelegate:self];
 }
 
-- (void)didReceiveMemoryWarning
+- (void)registerForKeyBoardNotifications
 {
-    [super didReceiveMemoryWarning];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyBoardWasShown:)
+                                                 name:UIKeyboardDidShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyBoardWillBeHidden:)
+                                                 name:UIKeyboardDidHideNotification object:nil];
+}
+
+- (void)keyBoardWasShown:(NSNotification *)aNotification
+{
+    NSDictionary *info = [aNotification userInfo];
+    
+    CGRect kbFrame = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    
+    float yValue = kbFrame.origin.y - 60;
+    float hValue = self.TextA.frame.size.height;
+    CGRect frameTextA  = CGRectMake(20, yValue, 260, hValue);
+    [self.TextA setFrame:frameTextA];
+}
+
+- (void)keyBoardWillBeHidden:(NSNotification *)aNotification
+{
+    NSDictionary *info = [aNotification userInfo];
+    
+    CGRect kbFrame = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    
+    float yValue = kbFrame.origin.y - 60;
+    float hValue = self.TextA.frame.size.height;
+    CGRect frameTextA  = CGRectMake(20, yValue, 260, hValue);
+    [self.TextA setFrame:frameTextA];
+}
+
+-  (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [self.TextA resignFirstResponder];
+    return YES;
     // Dispose of any resources that can be recreated.
+}
+
+-(void)switchToB:(id)sender
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"switchToB" object:nil];
 }
 
 - (void)switch
@@ -47,6 +96,7 @@
 
 - (void)dealloc {
     [_buttonA release];
+    [_TextA release];
     [super dealloc];
 }
 @end

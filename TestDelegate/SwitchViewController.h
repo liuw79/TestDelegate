@@ -16,4 +16,7 @@
 @property (nonatomic, retain) ViewControllerA * viewA;
 @property (nonatomic, retain) ViewControllerB * viewB;
 
+- (IBAction)switchToA:(id)sender;
+- (IBAction)switchToB:(id)sender;
+
 @end

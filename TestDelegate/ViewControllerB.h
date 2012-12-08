@@ -8,11 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import "switchProtocal.h"
+#import <MediaPlayer/MediaPlayer.h>
 
-@interface ViewControllerB : UIViewController<switchProtocal>
+@interface ViewControllerB : UIViewController<switchProtocal, UIAlertViewDelegate>
 
 @property (retain, nonatomic) IBOutlet UIButton *buttonB;
+@property (retain, nonatomic) MPMoviePlayerViewController *moviePlayerController;
 
 @property (nonatomic, assign) id <switchProtocal> delegate;
+
+- (IBAction)switchToA:(id)sender;
+- (IBAction)playVideo:(id)sender;
+
+- (void) MPMovieFinishedPlayback: (NSNotification *)aNotification;
 
 @end

@@ -26,22 +26,70 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    ViewControllerA *a = [[ViewControllerA alloc] initWithNibName:@"ViewControllerA" bundle:nil];
-    [a setDelegate:self];
-    self.viewA = a;
-    [self.view addSubview:self.viewA.view];
-    for (UIView *view in self.view.subviews)
-    {
-        NSLog(@"%@", view);
-    }
-    [a release];
 
-	// Do any additional setup after loading the view.
-    ViewControllerB *b = [[ViewControllerB alloc] init];
-    [b setDelegate:self];
-    self.viewB = b;
-    [b release];
+    if (nil == self.viewA) {
+        ViewControllerA *a = [[ViewControllerA alloc] initWithNibName:@"ViewControllerA" bundle:nil];
+        [a setDelegate:self];
+        self.viewA = a;
+        [a release];
+    }
+
+    if (nil == self.viewB ) {
+        ViewControllerB *b = [[ViewControllerB alloc] init];
+        [b setDelegate:self];
+        self.viewB = b;
+        [b release];
+    }
+    
+    //没加载任何视图，则加载A视图
+    if ([self.viewA.view superview] == nil && [self.viewB.view superview] == nil) {
+        [self.view addSubview:self.viewB.view];
+    }
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(switchToA:)
+                                                 name:@"switchToA"
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(switchToB:)
+                                                 name:@"switchToB"
+                                               object:nil];
+}
+
+-(void)switchToA:(id)sender
+{
+    [self.view addSubview:self.viewA.view];
+    
+    [UIView animateWithDuration:1.0
+                          delay:0.0
+                        options:UIViewAnimationTransitionFlipFromRight
+                     animations:^{
+                         [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft
+                                                forView:self.view
+                                                  cache:NO];
+                     }
+                     completion:^(BOOL finished) {
+                         [self.viewB.view removeFromSuperview];
+                     }];
+
+}
+
+- (void)switchToB:(id)sender
+{
+    [self.view addSubview:self.viewB.view];
+    
+    [UIView animateWithDuration:1.0
+                          delay:0.0
+                        options:UIViewAnimationTransitionFlipFromLeft
+                     animations:^{
+                         [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight
+                                                forView:self.view
+                                                  cache:NO];
+                     }
+                     completion:^(BOOL finished) {
+                         [self.viewA.view removeFromSuperview];
+                         
+                     }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -52,18 +100,25 @@
 
 - (void)switch
 {
-    if(self.viewA.view != nil)   //切换到B
+    if( [self.viewA.view superview] != nil ) //切换到B
     {
-        [self.view addSubview:self.viewB.view];
-        [self.viewA.view removeFromSuperview];
-        self.viewA.view = nil;
+        [self switchToB:nil];
     }
     else  //切换到A
     {
-        [self.view addSubview:self.viewA.view];
-        [self.viewB.view removeFromSuperview];
-        self.viewB.view = nil;
+        [self switchToA:nil];
     }
+}
+
+-(void)dealloc
+{
+    [_viewA release];
+    _viewA = nil;
+    
+    [_viewB release];
+    _viewB = nil;
+    
+    [super dealloc];
 }
 
 @end

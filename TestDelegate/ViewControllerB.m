@@ -33,6 +33,60 @@
     // Do any additional setup after loading the view from its nib.
 }
 
+- (void)playVideo:(id)sender
+{
+    NSBundle *bundle = [NSBundle mainBundle];
+    NSURL *videoURL =  [bundle URLForResource:@"IMG_6106" withExtension:@"m4v"];
+    NSLog(@"%@", videoURL);
+    
+//    MPMoviePlayerController *mpc = [[MPMoviePlayerController alloc] initWithContentURL:videoURL];
+//    mpc.scalingMode = MPMovieScalingModeAspectFill;
+//    mpc.controlStyle = MPMovieControlStyleFullscreen;
+//    
+//    [mpc play];
+    
+    MPMoviePlayerViewController *mpv = [[MPMoviePlayerViewController alloc] initWithContentURL:videoURL];
+    self.moviePlayerController = mpv;
+    [mpv release];
+    
+    [self.view addSubview:self.moviePlayerController.view];
+    MPMoviePlayerController *mpc = [self.moviePlayerController moviePlayer];
+    mpc.scalingMode = MPMovieScalingModeAspectFit;
+    mpc.controlStyle = MPMovieControlStyleDefault;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(MPMovieFinishedPlayback:)
+                                                 name:MPMoviePlayerPlaybackDidFinishNotification
+                                               object:mpc];
+    [mpc play];
+}
+
+- (void)MPMovieFinishedPlayback:(NSNotification *)aNotification
+{
+    MPMoviePlayerController *theMovie = [aNotification object];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:MPMoviePlayerPlaybackDidFinishNotification object:theMovie];
+    
+    [theMovie release];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"状态" message:@"播放完毕！" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:nil];
+    [alert show];
+    [alert release];
+    
+    //问题：要么出现黑屏，要么程序crash
+    //[self.moviePlayerController.view removeFromSuperview];
+    //[_moviePlayerController release];
+    [self.view.superview bringSubviewToFront:self.view];
+}
+
+-(void)switchToA:(id)sender
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"switchToA" object:nil];
+}
+
+
+
 - (void)switch
 {
     [self.delegate switch];
@@ -46,6 +100,10 @@
 
 - (void)dealloc {
     [_buttonB release];
+    
+//    [_moviePlayerController release];
+//    _moviePlayerController = nil;
+//    
     [super dealloc];
 }
 @end
